@@ -1,0 +1,14 @@
+public class Array_Length {
+
+	public static void main(String[] args) {
+
+		
+
+String []modelsOfCar = new String[7];
+  int arrLength = modelsOfCar.length;
+  System.out.println( + modelsOfCar.length);
+		
+		
+	}
+
+}
