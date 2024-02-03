@@ -1,0 +1,26 @@
+public class Email_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	      Scanner scan = new Scanner(System.in);
+	        String email = scan.next();
+	       
+	if (email.contains("_")) {
+	        int index_=email.indexOf("_");
+	        int index=email.indexOf("@");
+	      String  newEmail=email.substring(index_+1,index )+"_"
+	    		  +email.substring(0, index_)
+	    		  +email.substring(index, email.length());
+	      System.out.println(newEmail);
+	        }
+	        else {
+	        	System.out.println(email);
+	}
+		
+		
+		
+/
+	}
+
+}
