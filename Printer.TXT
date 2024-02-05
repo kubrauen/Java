@@ -1,0 +1,29 @@
+public class PrinterDemo2 {
+
+	public static void main(String[] args) {
+        
+		
+		Printer print1 = new Printer(10, true);
+		
+		Scanner scan = new Scanner(System.in);
+	    
+		System.out.println("add toner: ");
+	    
+		int tonerLevel = print1.addToner(scan.nextInt());
+		
+		System.out.println("Toner level: " + tonerLevel);
+		
+		System.out.println("Initial page count: " + print1.getPagesPrinted());
+		 
+		System.out.println("How many pages would you like to print?");
+		
+		int pagesPrinted = scan.nextInt();
+	    
+	    System.out.println("pages to print: " + pagesPrinted);
+		
+		print1.printPages(pagesPrinted);
+		
+		System.out.println("Total print count: " + print1.getPagesPrinted());
+	}
+
+}
