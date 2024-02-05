@@ -1,0 +1,79 @@
+package com.yourname.SimpleTodoList;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class TodoList {
+    private List<Task> tasks;
+
+    public TodoList() {
+        this.tasks = new ArrayList<>();
+    }
+
+    public void addTask(String description) {
+        Task newTask = new Task(description);
+        tasks.add(newTask);
+        System.out.println("Task added: " + newTask.getDescription());
+    }
+
+    public void markTaskAsCompleted(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.get(index).markAsCompleted();
+            System.out.println("Task marked as completed: " + tasks.get(index).getDescription());
+        } else {
+            System.out.println("Invalid task index");
+        }
+    }
+
+    public void displayTasks() {
+        if (tasks.isEmpty()) {
+            System.out.println("No tasks in the to-do list.");
+        } else {
+            System.out.println("To-Do List:");
+            for (int i = 0; i < tasks.size(); i++) {
+                System.out.println(i + ". " + tasks.get(i));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        TodoList todoList = new TodoList();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\nOptions:");
+            System.out.println("1. Add Task");
+            System.out.println("2. Mark Task as Completed");
+            System.out.println("3. Display Tasks");
+            System.out.println("4. Exit");
+
+            System.out.print("Enter your choice (1-4): ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter task description: ");
+                    String description = scanner.nextLine();
+                    todoList.addTask(description);
+                    break;
+                case 2:
+                    System.out.print("Enter task index to mark as completed: ");
+                    int index = scanner.nextInt();
+                    todoList.markTaskAsCompleted(index);
+                    break;
+                case 3:
+                    todoList.displayTasks();
+                    break;
+                case 4:
+                    System.out.println("Exiting the To-Do List application. Goodbye!");
+                    scanner.close();
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                    break;
+            }
+        }
+    }
+}
