@@ -1,0 +1,108 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class InventorySystem {
+
+    public static void main(String[] args) {
+        ArrayList<Item> inventory = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Inventory System");
+
+        while (true) {
+            printMenu();
+            int choice = getUserChoice(scanner);
+
+            switch (choice) {
+                case 1:
+                    addItem(inventory, scanner);
+                    break;
+                case 2:
+                    viewInventory(inventory);
+                    break;
+                case 3:
+                    removeItem(inventory, scanner);
+                    break;
+                case 4:
+                    System.out.println("Exiting the Inventory System. Goodbye!");
+                    scanner.close();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    private static void printMenu() {
+        System.out.println("\nMenu:");
+        System.out.println("1. Add Item to Inventory");
+        System.out.println("2. View Inventory");
+        System.out.println("3. Remove Item from Inventory");
+        System.out.println("4. Exit");
+    }
+
+    private static int getUserChoice(Scanner scanner) {
+        System.out.print("Enter your choice (1-4): ");
+        return scanner.nextInt();
+    }
+
+    private static void addItem(ArrayList<Item> inventory, Scanner scanner) {
+        scanner.nextLine(); // Consume the newline character
+        System.out.print("Enter the item name: ");
+        String itemName = scanner.nextLine();
+        System.out.print("Enter the item quantity: ");
+        int quantity = scanner.nextInt();
+
+        Item newItem = new Item(itemName, quantity);
+        inventory.add(newItem);
+
+        System.out.println("Item added to the inventory!");
+    }
+
+    private static void viewInventory(ArrayList<Item> inventory) {
+        if (inventory.isEmpty()) {
+            System.out.println("Your inventory is empty. Add items to the list.");
+        } else {
+            System.out.println("Inventory:");
+            for (Item item : inventory) {
+                System.out.println("- " + item.getName() + " (Quantity: " + item.getQuantity() + ")");
+            }
+        }
+    }
+
+    private static void removeItem(ArrayList<Item> inventory, Scanner scanner) {
+        if (inventory.isEmpty()) {
+            System.out.println("Your inventory is empty. Nothing to remove.");
+        } else {
+            viewInventory(inventory);
+            System.out.print("Enter the item number to remove: ");
+            int itemNumber = scanner.nextInt();
+
+            if (itemNumber >= 1 && itemNumber <= inventory.size()) {
+                inventory.remove(itemNumber - 1);
+                System.out.println("Item removed from the inventory!");
+            } else {
+                System.out.println("Invalid item number. Please enter a valid item.");
+            }
+        }
+    }
+}
+
+class Item {
+    private String name;
+    private int quantity;
+
+    public Item(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+}
