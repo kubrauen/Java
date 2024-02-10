@@ -1,0 +1,19 @@
+public class Print_Salary {
+
+	public static void main(String[] args) {
+
+		
+		
+		int randomNumer;
+		String jobTitle;
+		double salary= 1000.0;
+
+		String DEPARTMENT = "Development";
+
+
+		        // Do not change
+		        System.out.println(DEPARTMENT + " average salary: " + salary);
+		
+	}
+
+}
