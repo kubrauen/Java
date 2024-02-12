@@ -1,0 +1,15 @@
+public class multidimensional_String_array {
+
+	public static void main(String[] args) {
+	
+		
+		
+		String[][] arr1 = { {"Mr. ", "Mrs. ", "Ms. "}, {"Smith", "Jones"} }; 
+
+
+		System.out.println(arr1[0][0] + arr1[1][0]); 
+		System.out.println(arr1[0][2] + arr1[1][1]);
+
+	}
+
+}
