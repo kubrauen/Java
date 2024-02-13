@@ -1,0 +1,15 @@
+Classes and Objects: In Java, everything is an object. A class is a blueprint for objects, defining their properties (fields) and behaviors (methods).
+
+Encapsulation: Encapsulation is the bundling of data (fields) and methods that operate on the data into a single unit (class). It helps in hiding the internal state of objects and only exposing necessary functionality.
+
+Inheritance: Inheritance allows a class (subclass or derived class) to inherit properties and behaviors from another class (superclass or base class). It promotes code reusability and establishes a parent-child relationship between classes.
+
+Polymorphism: Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables methods to behave differently based on the object they are invoked upon. There are two types of polymorphism in Java: compile-time (method overloading) and runtime (method overriding).
+
+Abstraction: Abstraction refers to the concept of hiding complex implementation details and showing only the essential features of an object. Abstract classes and interfaces are used to achieve abstraction in Java.
+
+Interfaces: An interface in Java is a blueprint of a class. It contains only abstract methods and constants (public static final fields). Classes can implement interfaces, providing implementations for all the methods declared in the interface.
+
+Packages: Packages in Java are used to organize classes and interfaces into namespaces, making it easier to manage and maintain large projects. They help in avoiding naming conflicts and provide access protection.
+
+Exception Handling: Java provides built-in support for exception handling, allowing programmers to deal with runtime errors gracefully. Exceptions are objects representing abnormal conditions that occur during the execution of a program.
