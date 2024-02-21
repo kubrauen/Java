@@ -1,0 +1,8 @@
+int[] dizi = {1, 2, 3, 4, 5};
+int toplam = 0;
+int index = 0;
+while (index < dizi.length) {
+    toplam += dizi[index];
+    index++;
+}
+System.out.println("Dizideki elemanların toplamı: " + toplam);
