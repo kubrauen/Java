@@ -1,0 +1,17 @@
+  int[] dizi = {1, 2, 3, 4, 5};
+    int toplam = 0;
+    for (int eleman : dizi) {
+        toplam += eleman;
+    }
+    System.out.println("Dizideki elemanların toplamı: " + toplam);
+
+    // while döngüsü kullanarak
+    int[] dizi2 = {1, 2, 3, 4, 5};
+    int toplam2 = 0;
+    int index = 0;
+    while (index < dizi2.length) {
+        toplam2 += dizi2[index];
+        index++;
+    }
+    System.out.println("Dizideki elemanların toplamı: " + toplam2);
+    ```
