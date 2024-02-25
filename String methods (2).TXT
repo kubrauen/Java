@@ -1,0 +1,1 @@
+String Methods: Methods provided by the String class for string manipulation, such as charAt, length, substring, indexOf, concat, toUpperCase, toLowerCase, trim, startsWith, endsWith, replace, etc.
