@@ -1,0 +1,1 @@
+Collection Methods: Methods provided by collection classes (e.g., ArrayList, LinkedList, HashSet, HashMap, etc.) for adding, removing, accessing elements, checking size, iteration, etc.
