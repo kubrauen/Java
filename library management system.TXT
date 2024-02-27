@@ -1,0 +1,82 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class LibraryManagementSystem {
+    private Map<String, Integer> bookInventory;
+
+    public LibraryManagementSystem() {
+        bookInventory = new HashMap<>();
+    }
+
+    public void addBook(String bookTitle, int quantity) {
+        if (bookInventory.containsKey(bookTitle)) {
+            int currentQuantity = bookInventory.get(bookTitle);
+            bookInventory.put(bookTitle, currentQuantity + quantity);
+        } else {
+            bookInventory.put(bookTitle, quantity);
+        }
+        System.out.println("Book(s) added successfully!");
+    }
+
+    public void borrowBook(String bookTitle) {
+        if (bookInventory.containsKey(bookTitle)) {
+            int quantity = bookInventory.get(bookTitle);
+            if (quantity > 0) {
+                bookInventory.put(bookTitle, quantity - 1);
+                System.out.println("You have borrowed \"" + bookTitle + "\".");
+            } else {
+                System.out.println("Sorry, the book \"" + bookTitle + "\" is currently out of stock.");
+            }
+        } else {
+            System.out.println("Sorry, the book \"" + bookTitle + "\" is not available in the library.");
+        }
+    }
+
+    public void displayInventory() {
+        if (bookInventory.isEmpty()) {
+            System.out.println("The library inventory is empty.");
+        } else {
+            System.out.println("Library Inventory:");
+            for (Map.Entry<String, Integer> entry : bookInventory.entrySet()) {
+                System.out.println(entry.getKey() + " - Quantity: " + entry.getValue());
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        LibraryManagementSystem library = new LibraryManagementSystem();
+
+        while (true) {
+            System.out.println("\n1. Add Book\n2. Borrow Book\n3. Display Inventory\n4. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline character
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter book title: ");
+                    String title = scanner.nextLine();
+                    System.out.print("Enter quantity: ");
+                    int quantity = scanner.nextInt();
+                    scanner.nextLine(); // Consume newline character
+                    library.addBook(title, quantity);
+                    break;
+                case 2:
+                    System.out.print("Enter book title to borrow: ");
+                    String bookToBorrow = scanner.nextLine();
+                    library.borrowBook(bookToBorrow);
+                    break;
+                case 3:
+                    library.displayInventory();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        }
+    }
+}
