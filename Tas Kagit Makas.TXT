@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class TasKagitMakas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] options = {"Taş", "Kağıt", "Makas"};
+
+        System.out.println("Taş, Kağıt, Makas oyununa hoş geldiniz!");
+        System.out.println("Lütfen seçiminizi yapın: 0 - Taş, 1 - Kağıt, 2 - Makas");
+
+        int userChoice = scanner.nextInt();
+
+        if (userChoice < 0 || userChoice > 2) {
+            System.out.println("Geçersiz seçim! Lütfen 0, 1 veya 2 girin.");
+            return;
+        }
+
+        int computerChoice = (int) (Math.random() * 3);
+
+        System.out.println("Sizin seçiminiz: " + options[userChoice]);
+        System.out.println("Bilgisayarın seçimi: " + options[computerChoice]);
+
+        if (userChoice == computerChoice) {
+            System.out.println("Berabere! Tekrar deneyin.");
+        } else if ((userChoice == 0 && computerChoice == 2) ||
+                   (userChoice == 1 && computerChoice == 0) ||
+                   (userChoice == 2 && computerChoice == 1)) {
+            System.out.println("Tebrikler, kazandınız!");
+        } else {
+            System.out.println("Maalesef, kaybettiniz!");
+        }
+    }
+}
